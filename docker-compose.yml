@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: asset-api
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_DEBUG=false
+      - DEFAULT_PER_PAGE=20
+    volumes:
+      - .:/app
