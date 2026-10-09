@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout del codice
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Build dell'immagine Docker
       run: docker build -t asset-api:test .
