@@ -12,15 +12,15 @@ L'infrastruttura è interamente containerizzata e servita tramite un server WSGI
 graph TD
     Client([Client / Browser]) -->|Richiesta HTTP| Gunicorn
     
-    subgraph Container Docker
+    subgraph DockerContainer [Container Docker]
         Gunicorn[Gunicorn WSGI Server] -->|Workers| Flask[Applicazione Flask]
         Flask -->|Gestione Dati| Logic[Logica Asset / Error Handling]
     end
 
-    subgraph CI/CD Pipeline
+    subgraph CIPipeline [CI/CD Pipeline]
         Code[GitHub Repository] -->|Push / PR| Actions[GitHub Actions]
         Actions -->|Test Build| DockerImage[Docker Image Validation]
     end
     
     classDef container fill:#0db7ed,stroke:#fff,stroke-width:2px,color:#fff;
-    class Container Docker container;
+    class DockerContainer container;
